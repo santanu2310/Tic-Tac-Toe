@@ -12,22 +12,15 @@ int judge(char table[3][3])
 {
     for (int i = 0; i < 3; i++)
     {
-        printf("First column %c\n", table[i][0]);
-        if (table[i][0] == table[i][1] == table[i][2] || table[0][i] == table[1][i] == table[2][i])
+        if (table[i][0] == table[i][1] && table[i][1] == table[i][2] && table[i][1] != ' ' || table[0][i] == table[1][i] && table[1][i] == table[2][i] && table[1][i] != ' ')
         {
-            printf("Checking...");
             return 1;
         }
     }
-    if (table[0][0] == table[1][1] && table[1][1] == table[2][2] && table[0][0]!=' ' && table[2][2]!=' ')
+    if (table[0][0] == table[1][1] && table[1][1] == table[2][2] && table[0][0] != ' ' && table[2][2] != ' ' || table[0][2] == table[1][1] && table[1][1] == table[2][0] && table[0][2] != ' ' && table[2][0] != ' ')
     {
         return 1;
     }
-    else if (table[0][2] == table[1][1] && table[1][1] == table[2][0] && table[0][2]!=' ' && table[2][0]!=' ')
-    {
-        return 1;
-    }
-
     else
     {
         return 0;
@@ -50,8 +43,17 @@ int main()
     while (run)
     {
         char inputChar[10];
+        int user;
         // taking input form user in the form of string
-        printf("\nEnter your position : ");
+        if (activeUser == 1)
+        {
+            user = 1;
+        }
+        else
+        {
+            user = 2;
+        }
+        printf("\nUser %d's move : ",user);
         fgets(inputChar, sizeof(inputChar), stdin);
 
         // converting the input to integer
