@@ -53,7 +53,7 @@ int main()
         {
             user = 2;
         }
-        printf("\nUser %d's move : ",user);
+        printf("\nUser %d's move : ", user);
         fgets(inputChar, sizeof(inputChar), stdin);
 
         // converting the input to integer
@@ -76,13 +76,18 @@ int main()
             }
 
             // updating the matrix
-            if (activeUser == 1)
+            if (table[row][col] == ' ')
             {
-                table[row][col] = 'X';
-            }
-            else
-            {
-                table[row][col] = 'O';
+                if (activeUser == 1)
+                {
+                    table[row][col] = 'X';
+                }
+                else
+                {
+                    table[row][col] = 'O';
+                }
+            }else{
+                continue;
             }
 
             display(table);
@@ -97,7 +102,6 @@ int main()
                 {
                     printf("User 2 win 🥳");
                 }
-                return 0;
             }
 
             activeUser *= -1;
