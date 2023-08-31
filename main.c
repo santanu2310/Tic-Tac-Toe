@@ -59,7 +59,7 @@ int main()
         // converting the input to integer
         int userInp = strtol(inputChar, NULL, 10);
 
-        if (userInp != 0)
+        if (userInp >= 1 && userInp <= 9)
         {
             // converting the userinput to row and column
             int row = 2 - (int)(userInp / 3);
@@ -107,6 +107,9 @@ int main()
             activeUser *= -1;
 
             printf("row : %d and col : %d", row, col);
+        }
+        else{
+            continue;
         }
     }
 
