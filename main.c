@@ -21,6 +21,9 @@ int judge(char table[3][3])
     {
         return 1;
     }
+    if (table[0][0] != ' ' && table[0][1] != ' ' && table[0][2] != ' ' && table[1][0] != ' ' && table[1][1] != ' ' && table[1][2] != ' ' && table[2][0] != ' ' && table[2][1] != ' ' && table[2][2] != ' '  ){
+            return 2;
+        }
     else
     {
         return 0;
@@ -103,10 +106,15 @@ int main()
                     printf("User 2 win 🥳");
                 }
             }
+            else if (judge(table) == 2){
+                printf("Draw");
+                break;
+            }
 
             activeUser *= -1;
 
             printf("row : %d and col : %d", row, col);
+            
         }
         else{
             continue;
